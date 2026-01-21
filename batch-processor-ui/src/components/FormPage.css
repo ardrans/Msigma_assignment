@@ -1,0 +1,127 @@
+/* Form Card Styling */
+.form-card {
+  max-width: 500px;
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-card .card-body {
+  padding: 1.5rem;
+}
+
+.form-card h2 {
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Form Labels */
+.form-card .form-label {
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* Form Controls */
+.form-card .form-control {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #1f2937;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.form-card .form-control:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  color: #1f2937;
+}
+
+.form-card .form-control::placeholder {
+  color: #9ca3af;
+}
+
+.form-card .form-control.is-invalid {
+  border-color: #ef4444;
+}
+
+/* Form Group spacing */
+.form-card .mb-3 {
+  margin-bottom: 0.75rem !important;
+}
+
+.form-card .mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+/* Phone Input */
+.form-card .phone-input {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  font-size: 0.9rem;
+}
+
+.form-card .phone-input .PhoneInputCountry {
+  margin-right: 0.5rem;
+}
+
+.form-card .phone-input input {
+  background: transparent !important;
+  border: none !important;
+  color: #1f2937 !important;
+  flex: 1;
+  padding: 0 !important;
+}
+
+.form-card .phone-input input:focus {
+  box-shadow: none !important;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  background: #3b82f6;
+}
+
+/* Alerts */
+.form-card .alert {
+  border-radius: 8px;
+  font-size: 0.85rem;
+  padding: 0.625rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .form-card .card-body {
+    padding: 1.25rem;
+  }
+
+  .form-card h2 {
+    font-size: 1.125rem;
+  }
+}

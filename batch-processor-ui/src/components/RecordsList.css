@@ -1,0 +1,66 @@
+.records-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.records-card .card-body {
+    padding: 1.5rem;
+}
+
+.records-card h3 {
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.records-table {
+    font-size: 0.9rem;
+}
+
+.records-table thead th {
+    background: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 0.75rem;
+    white-space: nowrap;
+}
+
+.records-table tbody td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    color: #4b5563;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.records-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.records-table a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.records-table a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .records-card .card-body {
+        padding: 1rem;
+    }
+
+    .records-table {
+        font-size: 0.8rem;
+    }
+
+    .records-table thead th,
+    .records-table tbody td {
+        padding: 0.5rem;
+    }
+}

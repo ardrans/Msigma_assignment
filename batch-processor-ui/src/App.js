@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Nav, Container } from 'react-bootstrap';
 import './App.css';
+import FormPage from './components/FormPage';
+import RecordsList from './components/RecordsList';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('form');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Batch Processor</h1>
+        <p className="App-subtitle">Submit your information for processing</p>
       </header>
+
+      <Container className="py-3">
+        <Nav variant="pills" className="justify-content-center mb-4">
+          <Nav.Item>
+            <Nav.Link
+              active={activeTab === 'form'}
+              onClick={() => setActiveTab('form')}
+              className="nav-pill"
+            >
+              Submit Form
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              active={activeTab === 'records'}
+              onClick={() => setActiveTab('records')}
+              className="nav-pill"
+            >
+              View Records
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Container>
+
+      <main className="App-main">
+        {activeTab === 'form' ? <FormPage /> : <RecordsList />}
+      </main>
     </div>
   );
 }
