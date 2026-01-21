@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
-import { Form, Button, Alert, Spinner, Container, Row, Col, Card } from 'react-bootstrap';
+import { Form, Button, Alert, Spinner, Card } from 'react-bootstrap';
 import 'react-phone-number-input/style.css';
 import './FormPage.css';
 
@@ -93,139 +93,133 @@ const FormPage = ({ onSuccess }) => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={8} lg={6}>
-          <Card className="form-card">
-            <Card.Body>
-              <Card.Title className="text-center mb-4">
-                <h2>Submit Your Information</h2>
-              </Card.Title>
+    <Card className="form-card">
+      <Card.Body>
+        <Card.Title className="text-center mb-4">
+          <h2>Submit Your Information</h2>
+        </Card.Title>
 
-              {submitSuccess && (
-                <Alert variant="success" dismissible onClose={() => setSubmitSuccess(false)}>
-                  Record submitted successfully!
-                </Alert>
+        {submitSuccess && (
+          <Alert variant="success" dismissible onClose={() => setSubmitSuccess(false)}>
+            Record submitted successfully!
+          </Alert>
+        )}
+
+        {submitError && (
+          <Alert variant="danger" dismissible onClose={() => setSubmitError(null)}>
+            {submitError}
+          </Alert>
+        )}
+
+        <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+          {/* Name Field */}
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Label>Name *</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="John Doe"
+              {...register('name')}
+              isInvalid={!!errors.name}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.name?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {/* Email Field */}
+          <Form.Group className="mb-3" controlId="email">
+            <Form.Label>Email *</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="john@example.com"
+              {...register('email')}
+              isInvalid={!!errors.email}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.email?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {/* Phone Number Field */}
+          <Form.Group className="mb-3" controlId="phone_number">
+            <Form.Label>Phone Number *</Form.Label>
+            <Controller
+              name="phone_number"
+              control={control}
+              render={({ field }) => (
+                <PhoneInput
+                  {...field}
+                  international
+                  defaultCountry="IN"
+                  placeholder="Enter phone number"
+                  className={`form-control phone-input ${errors.phone_number ? 'is-invalid' : ''}`}
+                />
               )}
+            />
+            {errors.phone_number && (
+              <div className="invalid-feedback d-block">
+                {errors.phone_number.message}
+              </div>
+            )}
+          </Form.Group>
 
-              {submitError && (
-                <Alert variant="danger" dismissible onClose={() => setSubmitError(null)}>
-                  {submitError}
-                </Alert>
+          {/* Link Field (Optional) */}
+          <Form.Group className="mb-3" controlId="link">
+            <Form.Label>Portfolio / GitHub / LinkedIn URL</Form.Label>
+            <Form.Control
+              type="url"
+              placeholder="https://github.com/username"
+              {...register('link')}
+              isInvalid={!!errors.link}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.link?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {/* DOB Field (Optional) */}
+          <Form.Group className="mb-4" controlId="dob">
+            <Form.Label>Date of Birth</Form.Label>
+            <Form.Control
+              type="date"
+              {...register('dob')}
+              isInvalid={!!errors.dob}
+              max={new Date().toISOString().split('T')[0]}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.dob?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {/* Submit Button */}
+          <div className="d-grid">
+            <Button
+              variant="primary"
+              type="submit"
+              size="lg"
+              disabled={isSubmitting}
+              className="submit-btn"
+            >
+              {isSubmitting ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    className="me-2"
+                  />
+                  Submitting...
+                </>
+              ) : (
+                'Submit'
               )}
-
-              <Form onSubmit={handleSubmit(onSubmit)} noValidate>
-                {/* Name Field */}
-                <Form.Group className="mb-3" controlId="name">
-                  <Form.Label>Name *</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="John Doe"
-                    {...register('name')}
-                    isInvalid={!!errors.name}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                {/* Email Field */}
-                <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email *</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="john@example.com"
-                    {...register('email')}
-                    isInvalid={!!errors.email}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.email?.message}
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                {/* Phone Number Field */}
-                <Form.Group className="mb-3" controlId="phone_number">
-                  <Form.Label>Phone Number *</Form.Label>
-                  <Controller
-                    name="phone_number"
-                    control={control}
-                    render={({ field }) => (
-                      <PhoneInput
-                        {...field}
-                        international
-                        defaultCountry="IN"
-                        placeholder="Enter phone number"
-                        className={`form-control phone-input ${errors.phone_number ? 'is-invalid' : ''}`}
-                      />
-                    )}
-                  />
-                  {errors.phone_number && (
-                    <div className="invalid-feedback d-block">
-                      {errors.phone_number.message}
-                    </div>
-                  )}
-                </Form.Group>
-
-                {/* Link Field (Optional) */}
-                <Form.Group className="mb-3" controlId="link">
-                  <Form.Label>Portfolio / GitHub / LinkedIn URL</Form.Label>
-                  <Form.Control
-                    type="url"
-                    placeholder="https://github.com/username"
-                    {...register('link')}
-                    isInvalid={!!errors.link}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.link?.message}
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                {/* DOB Field (Optional) */}
-                <Form.Group className="mb-4" controlId="dob">
-                  <Form.Label>Date of Birth</Form.Label>
-                  <Form.Control
-                    type="date"
-                    {...register('dob')}
-                    isInvalid={!!errors.dob}
-                    max={new Date().toISOString().split('T')[0]}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.dob?.message}
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                {/* Submit Button */}
-                <div className="d-grid">
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="submit-btn"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Spinner
-                          as="span"
-                          animation="border"
-                          size="sm"
-                          role="status"
-                          aria-hidden="true"
-                          className="me-2"
-                        />
-                        Submitting...
-                      </>
-                    ) : (
-                      'Submit'
-                    )}
-                  </Button>
-                </div>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+            </Button>
+          </div>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 
