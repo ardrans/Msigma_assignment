@@ -56,8 +56,8 @@ const RecordsList = () => {
                 </Card.Title>
 
                 {records.length === 0 ? (
-                    <div className="text-center py-4">
-                        <p className="text-muted mb-0">No records with SUCCESS status yet.</p>
+                    <div className="empty-state">
+                        <p>No records with SUCCESS status yet.</p>
                     </div>
                 ) : (
                     <div className="table-responsive">

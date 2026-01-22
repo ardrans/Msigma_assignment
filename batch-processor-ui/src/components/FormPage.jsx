@@ -84,7 +84,7 @@ const FormPage = ({ onSuccess }) => {
     <Card className="form-card">
       <Card.Body>
         <Card.Title className="text-center mb-4">
-          <h2>Submit Your Information</h2>
+          <h2>New Record Submission</h2>
         </Card.Title>
 
         {submitSuccess && (
@@ -105,7 +105,7 @@ const FormPage = ({ onSuccess }) => {
             <Form.Label>Name *</Form.Label>
             <Form.Control
               type="text"
-              placeholder="John Doe"
+              placeholder="Ardra"
               {...register('name')}
               isInvalid={!!errors.name}
             />
@@ -119,7 +119,7 @@ const FormPage = ({ onSuccess }) => {
             <Form.Label>Email *</Form.Label>
             <Form.Control
               type="email"
-              placeholder="john@example.com"
+              placeholder="ardra@example.com"
               {...register('email')}
               isInvalid={!!errors.email}
             />
@@ -201,7 +201,7 @@ const FormPage = ({ onSuccess }) => {
                   Submitting...
                 </>
               ) : (
-                'Submit'
+                'Submit for Processing'
               )}
             </Button>
           </div>

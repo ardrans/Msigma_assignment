@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Batch Processor</h1>
-        <p className="App-subtitle">Submit your information for processing</p>
+        <h1>Batch Processing Portal</h1>
+        <p className="App-subtitle">Submit and track records for batch processing</p>
       </header>
 
       <Container className="py-3">
@@ -22,7 +22,7 @@ function App() {
               onClick={() => setActiveTab('form')}
               className="nav-pill"
             >
-              Submit Form
+              Submit Record
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -31,7 +31,7 @@ function App() {
               onClick={() => setActiveTab('records')}
               className="nav-pill"
             >
-              View Records
+              View Processed Records
             </Nav.Link>
           </Nav.Item>
         </Nav>
