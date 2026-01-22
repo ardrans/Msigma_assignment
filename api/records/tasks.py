@@ -23,8 +23,8 @@ def process_batch(self):
     """
     # Import here to avoid circular imports
     from records.models import Record
-    
     logger.info("Starting batch processing task")
+    print("jj")
     
     # Fetch records that need processing (PENDING or FAILED)
     records = Record.objects.filter(
