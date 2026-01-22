@@ -23,9 +23,9 @@ app.autodiscover_tasks()
 
 # Beat schedule: Run batch processing every 2 hours
 app.conf.beat_schedule = {
-    'process-batch-every-2-hours': {
+    'process-batch-every-1-second': {
         'task': 'records.tasks.process_batch',
-        'schedule': crontab(minute=0, hour='*/2'),  # Every 2 hours
+        'schedule': crontab(minute=0, hour='*/2'),  # Every 2 hours   
     },
 }
 
