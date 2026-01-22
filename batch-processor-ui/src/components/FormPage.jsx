@@ -6,6 +6,7 @@ import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import { Form, Button, Alert, Spinner, Card } from 'react-bootstrap';
 import 'react-phone-number-input/style.css';
 import './FormPage.css';
+import { createRecord } from '../services/api';
 
 // Validation schema
 const schema = yup.object().shape({
@@ -68,20 +69,7 @@ const FormPage = ({ onSuccess }) => {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:8000/api/records/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || 'Failed to submit form');
-      }
-
+      await createRecord(data);
       setSubmitSuccess(true);
       reset();
       if (onSuccess) onSuccess();
