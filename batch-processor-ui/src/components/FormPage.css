@@ -1,0 +1,162 @@
+/* Form Card */
+.form-card {
+  max-width: 480px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.form-card .card-body {
+  padding: 32px;
+}
+
+.form-card h2 {
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Form Labels */
+.form-card .form-label {
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Form Controls */
+.form-card .form-control {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  color: #1e293b;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.form-card .form-control:hover {
+  border-color: #cbd5e1;
+}
+
+.form-card .form-control:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  color: #1e293b;
+  outline: none;
+}
+
+.form-card .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.form-card .form-control.is-invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Form Group spacing - 8px system */
+.form-card .mb-3 {
+  margin-bottom: 16px !important;
+}
+
+.form-card .mb-4 {
+  margin-bottom: 24px !important;
+}
+
+/* Phone Input */
+.form-card .phone-input {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.form-card .phone-input .PhoneInputCountry {
+  margin-right: 8px;
+}
+
+.form-card .phone-input input {
+  background: transparent !important;
+  border: none !important;
+  color: #1e293b !important;
+  flex: 1;
+  padding: 0 !important;
+}
+
+.form-card .phone-input input:focus {
+  box-shadow: none !important;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  background: #2563eb;
+}
+
+/* Alerts */
+.form-card .alert {
+  border-radius: 10px;
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.form-card .alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.form-card .alert-danger {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .form-card .card-body {
+    padding: 24px;
+  }
+
+  .form-card h2 {
+    font-size: 1.125rem;
+  }
+
+  .form-card .form-control {
+    padding: 10px 14px;
+  }
+
+  .submit-btn {
+    padding: 12px 20px;
+  }
+}
