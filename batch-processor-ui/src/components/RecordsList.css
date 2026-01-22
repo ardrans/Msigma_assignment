@@ -1,58 +1,112 @@
+/* Records Card */
 .records-card {
-    background: #ffffff;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 16px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.08);
 }
 
 .records-card .card-body {
-    padding: 1.5rem;
+    padding: 32px;
 }
 
 .records-card h3 {
-    color: #1f2937;
+    color: #1e293b;
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0;
+    letter-spacing: -0.01em;
 }
 
+/* Status Badge */
+.records-card .badge {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Table */
 .records-table {
     font-size: 0.9rem;
 }
 
 .records-table thead th {
-    background: #f9fafb;
-    color: #374151;
+    background: #f8fafc;
+    color: #475569;
     font-weight: 600;
-    border-bottom: 2px solid #e5e7eb;
-    padding: 0.75rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 16px;
     white-space: nowrap;
 }
 
 .records-table tbody td {
-    padding: 0.75rem;
+    padding: 14px 16px;
     vertical-align: middle;
-    color: #4b5563;
-    border-bottom: 1px solid #f3f4f6;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 .records-table tbody tr:hover {
-    background: #f9fafb;
+    background: #f8fafc;
+}
+
+.records-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .records-table a {
-    color: #3b82f6;
+    color: #2563eb;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .records-table a:hover {
+    color: #1d4ed8;
     text-decoration: underline;
+}
+
+.records-table a:focus {
+    outline: 2px solid rgba(59, 130, 246, 0.3);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.records-table .badge {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.empty-state p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .records-card .card-body {
-        padding: 1rem;
+        padding: 24px;
     }
 
     .records-table {
@@ -61,6 +115,6 @@
 
     .records-table thead th,
     .records-table tbody td {
-        padding: 0.5rem;
+        padding: 10px 12px;
     }
 }
